@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--<link rel="stylesheet" href="styles.css">-->
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<meta http-equiv="refresh" content="600">
+	</head>
+	<body id="bodysel">
+		<script type="text/javascript" src="scripts/javascript.js"></script>
+		<div class="TimeHeading">
+			<b class="Heading">TESTING BOARDS</b>
+			<p> - </p>
+			<p id="demo"></p>
+		</div>
+		<hr>
+		<div id="UserBar" class="ContentContainer">
+		<!-- Get the user, check if they have any tasks, if yes, loop through and write to system-->
+		<%for(let i = 0; i < user_works.users.length; i++){%>
+			<div class="StatusColumn"><!-- Awaiting Start-->
+				<div class="StatusTitle">
+					<b><%=user_works.users[i].user_name %></b>
+				</div>
+				<div class="ScrollContainer">
+					<%let user_tasks = user_works.users[i].tasks%>
+					<%for(let i = 0; i < user_tasks.length; i++){%>
+						<div class = "TaskContainer <%= SetTimeTag(user_tasks[i].priority) %>">
+							<%var task_desc = user_tasks[i].name.replace("(", " ").replace(")", " ").replace("&amp;", "&")%>
+							<%task_desc = task_desc.split(" ")%>
+							<b><%= task_desc[0]%></b>
+							<br>
+							<%let max_len = 10%>
+							<% if (task_desc.length < max_len){%>
+								<%max_len = task_desc.length%>
+							<%}%>
+							<b>
+								<%for (let j = 1; j < max_len; j++){%>
+									<%= task_desc[j] %>
+								<%};%>
+							</b>
+							<hr>
+								<p>Due Date: <%= SetDueDay(user_tasks[i].end_date) %></p>
+								<p>Priority: <%= user_tasks[i].priority %></p>
+						</div>
+					<%};%>
+				</div>
+			</div>
+			<%};%>
+		</div>
+	</body>
+</html>

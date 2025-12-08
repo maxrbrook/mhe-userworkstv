@@ -1,0 +1,78 @@
+body{
+	background-color: #1d1e20;
+	overflow-x: hidden;
+}
+p{
+	color:white;
+	font-size:24px;
+	margin:0px;
+}
+.Heading{
+	color:white;
+	font-size:36px;
+}
+.TimeHeading{
+	display:flex;
+	gap:5px;
+	align-items:center;
+	margin: 5px 10px;
+}
+.ContentContainer{
+	display:flex;
+	flex-wrap:nowrap;
+	overflow-x: auto;
+	gap: 10px;
+}
+.StatusColumn{
+	background-color:#0f1011;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.StatusTitle{
+	margin:15px;
+	font-size:24px;
+	color:white;
+	font-family: Tahoma, sans-serif;
+}
+
+.ScrollContainer{
+	overflow-x:hidden;
+	overflow-y:auto;
+	height: 85vh;
+	width: max-content
+}
+.LowTag{
+	border-left:4px solid;
+	border-left-color:green;
+}
+.MedTag{
+	border-left:4px solid;
+	border-left-color:yellow;
+}
+.HighTag{
+	border-left:4px solid;
+	border-left-color:red;
+}
+.TaskLate{
+	border:4px solid;
+	border-color:red;
+}
+
+.TaskContainer{
+	margin:10px;
+	padding: 10px;
+	background-color:#202124;
+	border-radius: 10px;
+}
+.TaskContainer b{
+	margin: 0px;
+	color:white;
+	font-family: Tahoma, sans-serif;
+}
+.TaskContainer p{
+	margin: 0px;
+	color:white;
+	font-family: Tahoma, sans-serif;
+	font-size:18px;
+}
