@@ -6,8 +6,7 @@ if [ ! -f index.js ]; then
 	logger "MECHTV: ERROR - FILE NOT FOUND"
 else
 	logger "MECHTV: FILE FOUND - STARTING SERVER"
-	eval "npm start index.js --no-sandbox"&
-	eval "DISPLAY=:0 chromium http://localhost:3000 --kiosk --force-device-scale-factor=1.5"&
-	wait
+	eval "npm start --no-sandbox"&
+	eval "DISPLAY=:0 chromium-browser http://localhost:3000 --kiosk"
 fi
 

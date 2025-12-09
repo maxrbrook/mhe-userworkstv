@@ -1,10 +1,11 @@
 [Unit]
 Description = Start the Work TV service
-After=default.target
+After=network.target
 
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/userworkstvlaunch.sh
+Restart=always
 
 [Install]
 WantedBy=multi-user.target

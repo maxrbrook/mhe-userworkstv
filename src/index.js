@@ -84,7 +84,7 @@ app.use(async function(req, res, next)
 		{
 			console.log("attempting to get Access Token");
 			ACCESS_TOKEN = await GetAccessToken();
-			console.log(ACCESS_TOKEN);
+			console.log("access token received");
 			var zoho_task_data = await GetZohoTaskData(ACCESS_TOKEN);
 			var zoho_team_data = await GetZohoTeamData(ACCESS_TOKEN);
 			req.task_return_data = JSON.stringify(zoho_task_data);

@@ -24,9 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	{
 		let i = 0;
 		ScrollList.forEach((Scroll) => {
+			//console.log(Scroll.scrollTop + " | " + Scroll.scrollHeight + " | " +Scroll.clientHeight);
 			if (toggle[i] == 1)
 			{
-				if(Scroll.scrollTop == Scroll.scrollTopMax)
+				if(Scroll.scrollTop == (Scroll.scrollHeight - Scroll.clientHeight))
 				{
 					toggle[i] = -1;
 				}
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let Scroll = document.getElementById('UserBar');
 		if (toggle_2 == 1)
 		{
-			if(Scroll.scrollLeft == Scroll.scrollLeftMax)
+			if (Scroll.scrollLeft == (Scroll.scrollWidth - Scroll.clientWidth))
 			{
 				toggle_2 = -1;
 			}
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 		if (toggle_2 == -1)
 		{
-			if(Scroll.scrollLeft == 0)
+			if (Scroll.scrollLeft == 0)
 			{
 				toggle_2 = 1;
 			}
