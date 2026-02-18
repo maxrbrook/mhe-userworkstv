@@ -9,18 +9,17 @@ const PORT = 3000;
 
 // -- Functions
 const GetAccessToken = () => new Promise((resolve, reject) => {
-	let Client_id = process.env.CLIENT_ID;
-	let Client_secret = process.env.CLIENT_SECRET;
-	let Refresh_token = process.env.REFRESH_TOKEN;
-	let url = 'https://accounts.zoho.com.au/oauth/v2/token?client_id=' + Client_id + '&client_secret=' + Client_secret + '&grant_type=refresh_token&refresh_token=' + Refresh_token;
+	let localhost_url = process.env.LOCALHOST_URL;
+	let url = localhost_url + '/tv';
 	let config = {
-		method: 'post',
+		method: 'get',
 		maxBodyLength: Infinity,
 		url: url,
 		headers: {}
 	};
 	axios.request(config).then((response) => {
-		resolve(response.data.access_token);
+		console.log(response)
+		resolve(response.data);
 	}).catch((error) => {
 		reject(error);
 	});
