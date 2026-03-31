@@ -155,6 +155,7 @@ app.use(function (req, res, next)
 			let owners_array = task_array[j].owners_and_work.owners;
 			for (let k = 0; k < owners_array.length; k++)
 			{
+				//check that the owner is not unassigned or 0
 				if (owners_array[k].zuid == 0)
 					continue;
 
@@ -209,6 +210,9 @@ app.locals.SetTimeTag = function(item_priority)
 app.locals.SetStartDay = function(item_data)
 {
 	let date_options = {day:"numeric", month:"short", year:"numeric"};
+	if (item_data == undefined)
+		return "Not Set";
+
 	let date_string = new Date(item_data.replace(/([T,]\d*)(.*)/g, ""));
 	let rtn = date_string.toLocaleString('en-au', date_options);
 
@@ -217,6 +221,9 @@ app.locals.SetStartDay = function(item_data)
 app.locals.SetDueDay = function(item_data)
 {
 	let date_options = {day:"numeric", month:"short", year:"numeric"};
+	if (item_data == undefined)
+		return "Not Set";
+
 	let date_string = new Date(item_data.replace(/([T,]\d*)(.*)/g, ""));
 	let rtn = date_string.toLocaleString('en-au', date_options);
 

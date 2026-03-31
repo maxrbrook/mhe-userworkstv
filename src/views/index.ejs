@@ -24,7 +24,7 @@
 					<%let user_tasks = user_works.users[i].tasks%>
 					<%for(let i = 0; i < user_tasks.length; i++){%>
 						<div class = "TaskContainer <%= SetTimeTag(user_tasks[i].priority) %>">
-							<%var task_desc = user_tasks[i].name.replace("(", " ").replace(")", " ").replace("&amp;", "&")%>
+							<%let task_desc = user_tasks[i].name.replace("(", " ").replace(")", " ").replace("&amp;", "&")%>
 							<%task_desc = task_desc.split(" ")%>
 							<b><%= task_desc[0]%></b>
 							<br>
